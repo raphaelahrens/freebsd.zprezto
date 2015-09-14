@@ -28,5 +28,8 @@ path=(
 #quicksearch through the ports
 
 function quicksearch {
-    make -f /usr/ports/Makefile quicksearch name="$1" | less
+    (
+    builtin cd /usr/ports/
+    make quicksearch name="$1" | less
+    )
 }
