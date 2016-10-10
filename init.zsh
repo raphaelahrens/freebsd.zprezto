@@ -19,6 +19,7 @@ fi
 path=(
   /usr/games/
   /usr/local/{bin,sbin}
+  /usr/{bin,sbin}
   $path
 )
 
