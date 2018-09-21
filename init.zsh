@@ -2,8 +2,6 @@
 #
 #
 # Authors:
-#   Matt Cable <wozz@wookie.net>
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
 # Return if requirements are not found.
@@ -31,7 +29,11 @@ path=(
 
 function quicksearch {
     (
-    builtin cd /usr/ports/
+    if [ -d /usr/local/poudriere/ports/ ]; then
+        builtin cd /usr/local/poudriere/ports/local/
+    else
+        builtin cd /usr/ports/
+    fi
     make quicksearch name="$1" | less
     )
 }
